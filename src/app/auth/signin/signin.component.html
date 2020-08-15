@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <span *ngIf="form.get('email').dirty && form.get('email').errors">
+    {{ form.get("email").errors.message }}
+  </span>
+  <label>
+    Email:
+    <input type="text" formControlName="email" />
+  </label>
+
+  <span *ngIf="form.get('password').dirty && form.get('password').errors">{{
+    form.get("password").errors.message
+  }}</span>
+  <label>
+    Password:
+    <input type="password" formControlName="password" />
+  </label>
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
